@@ -4,7 +4,7 @@ Turn a dumb Arlec USB desk lamp into a fully smart, Home Assistant-controlled RG
 
 > This project uses the [Arlec Black RGB Desk Lights Twin Pack](https://www.arlec.com.au/products/arlec-black-rgb-desk-lights-twin-pack), available at Bunnings.
 
-![Project overview](images/arlec smart.jpg)
+![Project overview](images/arlec_smart.jpg)
 
 ---
 
@@ -190,7 +190,7 @@ Both strips support these built-in ESPHome effects:
 
 ## Per-LED Control with Partitions
 
-![Project overview](images/arlec smart partitions.jpg)
+![Project overview](images/arlec_smart_partitions.jpg)
 
 For more granular control, `arlec_desk_light_partition.yaml` splits each 10-LED strip into named segments — for example, top, middle, and bottom thirds. Each segment appears as its own light entity in Home Assistant, letting you set different colours or effects on different parts of the same physical strip.
 
