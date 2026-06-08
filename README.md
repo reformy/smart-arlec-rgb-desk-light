@@ -182,6 +182,14 @@ The strips can follow whatever is playing on your TV — matching the dominant c
 
 This is implemented as a Home Assistant automation that watches `media_player.living_room_tv` state and attributes, and calls the ESPHome light service accordingly.
 
+The strips also react to playback state:
+
+| TV state | LED behaviour |
+|----------|---------------|
+| Home screen | **Rainbow** effect |
+| Paused | **Scan** animation |
+| Playing | Dimmed to a very low brightness, so the lamp doesn't compete with the screen |
+
 ---
 
 ## Available effects
