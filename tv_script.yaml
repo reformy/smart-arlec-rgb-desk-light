@@ -1,0 +1,159 @@
+alias: TV Desk Lights
+sequence:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >-
+              {{ state_attr('media_player.living_room_tv', 'source') ==
+              'Netflix' }}
+        sequence:
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: >-
+                      {{ state_attr('media_player.living_room_tv',
+                      'entity_picture') is none }}
+                sequence:
+                  - action: light.turn_on
+                    target:
+                      entity_id:
+                        - light.arlec_desk_lights_strip_1
+                        - light.arlec_desk_lights_strip_2
+                    data:
+                      brightness_pct: 100
+                      effect: Rainbow
+              - conditions:
+                  - condition: template
+                    value_template: >-
+                      {{ state_attr('media_player.living_room_tv',
+                      'entity_picture') is not none }}
+                sequence:
+                  - choose:
+                      - conditions:
+                          - condition: state
+                            entity_id: media_player.living_room_tv
+                            state: playing
+                        sequence:
+                          - action: light.turn_on
+                            target:
+                              entity_id:
+                                - light.arlec_desk_lights_strip_1
+                                - light.arlec_desk_lights_strip_2
+                            data:
+                              brightness_pct: 15
+                              rgb_color:
+                                - 255
+                                - 0
+                                - 0
+                              effect: none
+                      - conditions:
+                          - condition: state
+                            entity_id: media_player.living_room_tv
+                            state: paused
+                        sequence:
+                          - action: light.turn_on
+                            target:
+                              entity_id:
+                                - light.arlec_desk_lights_strip_1
+                                - light.arlec_desk_lights_strip_2
+                            data:
+                              brightness_pct: 25
+                              rgb_color:
+                                - 255
+                                - 0
+                                - 0
+                              effect: Pulse
+                    default:
+                      - action: light.turn_on
+                        target:
+                          entity_id:
+                            - light.arlec_desk_lights_strip_1
+                            - light.arlec_desk_lights_strip_2
+                        data:
+                          brightness_pct: 50
+                          rgb_color:
+                            - 255
+                            - 0
+                            - 0
+                          effect: Scan
+      - conditions:
+          - condition: template
+            value_template: >-
+              {{ state_attr('media_player.living_room_tv', 'source') == 'Stan.'
+              }}
+        sequence:
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: >-
+                      {{ state_attr('media_player.living_room_tv',
+                      'entity_picture') is none }}
+                sequence:
+                  - action: light.turn_on
+                    target:
+                      entity_id:
+                        - light.arlec_desk_lights_strip_1
+                        - light.arlec_desk_lights_strip_2
+                    data:
+                      brightness_pct: 100
+                      effect: Rainbow
+              - conditions:
+                  - condition: template
+                    value_template: >-
+                      {{ state_attr('media_player.living_room_tv',
+                      'entity_picture') is not none }}
+                sequence:
+                  - choose:
+                      - conditions:
+                          - condition: state
+                            entity_id: media_player.living_room_tv
+                            state: playing
+                        sequence:
+                          - action: light.turn_on
+                            target:
+                              entity_id:
+                                - light.arlec_desk_lights_strip_1
+                                - light.arlec_desk_lights_strip_2
+                            data:
+                              brightness_pct: 15
+                              rgb_color:
+                                - 173
+                                - 216
+                                - 230
+                              effect: none
+                      - conditions:
+                          - condition: state
+                            entity_id: media_player.living_room_tv
+                            state: paused
+                        sequence:
+                          - action: light.turn_on
+                            target:
+                              entity_id:
+                                - light.arlec_desk_lights_strip_1
+                                - light.arlec_desk_lights_strip_2
+                            data:
+                              brightness_pct: 25
+                              rgb_color:
+                                - 173
+                                - 216
+                                - 230
+                              effect: Pulse
+                    default:
+                      - action: light.turn_on
+                        target:
+                          entity_id:
+                            - light.arlec_desk_lights_strip_1
+                            - light.arlec_desk_lights_strip_2
+                        data:
+                          brightness_pct: 50
+                          rgb_color:
+                            - 173
+                            - 216
+                            - 230
+                          effect: Scan
+    default:
+      - action: light.turn_off
+        target:
+          entity_id:
+            - light.arlec_desk_lights_strip_1
+            - light.arlec_desk_lights_strip_2
