@@ -29,6 +29,8 @@ Turn a dumb Arlec USB desk lamp into a fully smart, Home Assistant-controlled RG
 
 The lamp's original controller board (CZG-2811-W-3KEY-SP) is bypassed entirely. I managed to cut the original board in such a way that the ESP32 fits in the original controller casing, and even reused the two physical buttons from the board — so the existing plastic buttons on the casing still work.
 
+<img src="images/boards.jpg" width="500" alt="Original controller board and ESP32-C3" />
+
 ---
 
 ## How it works
@@ -36,6 +38,8 @@ The lamp's original controller board (CZG-2811-W-3KEY-SP) is bypassed entirely. 
 The lamp's two LED strips are **WS2811-compatible addressable RGB strips** (marked `220×10MM-2835-10RGB`), powered by USB at 5V. The original music-reactive controller is removed and replaced with an ESP32-C3 Super Mini running ESPHome.
 
 Each strip has 10 LEDs and is driven independently from a separate GPIO pin, using the NeoPixelBus library with explicit RMT channel assignment to avoid conflicts.
+
+<img src="images/led_strip.jpg" width="500" alt="WS2811-compatible addressable RGB LED strip" />
 
 Two momentary buttons are wired to GPIO pins and report short/long press events to Home Assistant via the ESPHome native API.
 
@@ -170,7 +174,7 @@ action:
 
 ## Demo — Follow TV app state
 
-[![Watch the demo](images/demo-thumb.jpg)](images/demo.mp4)
+▶️ [Watch the demo (tv_auto.mov)](images/tv_auto.mov)
 
 The strips can follow whatever is playing on your TV — matching the dominant colour of the current app or input. In this demo, the strips automatically change colour when switching between apps on the TV, giving the lamp a bias-lighting feel without any manual input.
 
@@ -232,6 +236,12 @@ light:
 ```
 
 This gives you three independently controllable light entities from one strip — useful for showing status information, alerts, or ambient effects on different parts of the lamp.
+
+---
+
+## Credits
+
+This project was inspired by Simone Luconi's [SKAFTSARV-to-WLED](https://github.com/simoneluconi/SKAFTSARV-to-WLED) — a similar "turn a dumb lamp smart" hack on an IKEA light. Cheers, Simone!
 
 ---
 
