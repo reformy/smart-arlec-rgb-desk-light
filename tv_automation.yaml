@@ -1,0 +1,17 @@
+alias: Desk Lights Follow TV App State
+description: >-
+  Runs the desk lights script whenever the living room TV state, source, or
+  entity_picture changes
+triggers:
+  - entity_id: media_player.living_room_tv
+    attribute: source
+    trigger: state
+  - entity_id: media_player.living_room_tv
+    attribute: entity_picture
+    trigger: state
+  - entity_id: media_player.living_room_tv
+    trigger: state
+conditions: []
+actions:
+  - action: script.tv_app_desk_lights
+mode: restart
