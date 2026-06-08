@@ -174,7 +174,9 @@ action:
 
 ## Demo — Follow TV app state
 
-▶️ [Watch the demo (tv_auto.mov)](images/tv_auto.mov)
+[![Watch the demo on YouTube](https://img.youtube.com/vi/2schrJ6aV-Q/maxresdefault.jpg)](https://youtu.be/2schrJ6aV-Q)
+
+▶️ [Watch the demo on YouTube](https://youtu.be/2schrJ6aV-Q)
 
 The strips can follow whatever is playing on your TV — matching the dominant colour of the current app or input. In this demo, the strips automatically change colour when switching between apps on the TV, giving the lamp a bias-lighting feel without any manual input.
 
